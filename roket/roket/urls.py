@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Cree el Home
-    path('', views.Home, name='home'),
+    path('', views.Base, name='base'),
     #Inicio del juego
     path('juego/', views.Juego, name='juego'),
 ]

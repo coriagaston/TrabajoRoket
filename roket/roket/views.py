@@ -1,9 +1,9 @@
 
 from django.shortcuts import render
 
-def Home(request):
+def Base(request):
 
-	return render(request,'home.html')
+	return render(request,'base.html')
 
 def Juego(request):
 
