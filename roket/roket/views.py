@@ -8,3 +8,7 @@ def Base(request):
 def Juego(request):
 
 	return render(request,'juego.html')
+
+def Login(request):
+
+	return render(request,'login.html')

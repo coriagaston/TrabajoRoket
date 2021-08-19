@@ -24,4 +24,6 @@ urlpatterns = [
     path('', views.Base, name='base'),
     #Inicio del juego
     path('juego/', views.Juego, name='juego'),
+    #login 
+    path('login/', views.Login, name='login'),
 ]
