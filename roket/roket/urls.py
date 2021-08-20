@@ -15,15 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-#Archivo Creado
+from django.contrib.auth import views as  auth
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Cree el Home
-    path('', views.Base, name='base'),
+    path('', views.Home, name='home'),
     #Inicio del juego
+
+    path('iniciojuego/', views.InicioJuego, name='iniciojuego'),
+    
+    path('ranking/', views.Ranking, name='ranking'),
+    
     path('juego/', views.Juego, name='juego'),
     #login 
-    path('login/', views.Login, name='login'),
+    path('login/',auth.LoginView.as_view(template_name = 'usuarios/login.html'), name='login'),
+    #logout
+    path('logout/', auth.LogoutView.as_view(),name='logout')
+    
+
+    
+
 ]
