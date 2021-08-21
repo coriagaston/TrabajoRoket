@@ -18,11 +18,15 @@ from django.urls import path
 from django.contrib.auth import views as  auth
 from . import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Cree el Home
     path('', views.Home, name='home'),
+    
     #Inicio del juego
+    
 
     path('iniciojuego/', views.InicioJuego, name='iniciojuego'),
     
@@ -32,7 +36,11 @@ urlpatterns = [
     #login 
     path('login/',auth.LoginView.as_view(template_name = 'usuarios/login.html'), name='login'),
     #logout
-    path('logout/', auth.LogoutView.as_view(),name='logout')
+    path('logout/', auth.LogoutView.as_view(),name='logout'),
+
+    path('registrar/', views.RegistroUsuario, name='registrar'),
+
+    
     
 
     

@@ -1,8 +1,16 @@
 
 {% extends 'base.html' %}
 
-{% block contenido %}
 
+{% block contenido %}
+<div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    
+                
+                
+    <div> 
     <form method="POST">{% csrf_token %}
 
         <img src="img/user.pgn" width="100" height="100">
@@ -11,7 +19,15 @@
         <input type="password" name="password" placeholder="CONTRASEÑA">
 
         <input type="submit" name="" value="INGRESAR">
-
+	</div> 
     </form>
     
+				</div>
+			</div>
+   		</div>
+   	<div>
+
+
+
+
 {% endblock contenido %}
