@@ -1,33 +1,50 @@
 
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Roket</title>
+</head>
+<body>
+<div class='container'>
+    <br>
+    <br>
+    <br>
+    <div class='row'>
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Iniciar sesion</h2>
+                    <hr>
+                    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="col-12 col-md-6 offset-md-5"><button type="submit"  class="btn btn-primary">Iniciar sesion</button></div>
+    
+    
+
+</form>
+                </div>
+                
+            </div>
+            
+        </div>
+        <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'home' %}">Volver al inicio</a>
+    </div>
+    
+</div>
 
 
 {% block contenido %}
-<div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
-                <div class="col-12 user-img">
-                    
-                
-                
-    <div> 
-    <form method="POST">{% csrf_token %}
-
-        <img src="img/user.pgn" width="100" height="100">
-        {{forms.errors}}
-        <input type="text" name="username" placeholder="USUARIO">
-        <input type="password" name="password" placeholder="CONTRASEÑA">
-
-        <input type="submit" name="" value="INGRESAR">
-	</div> 
-    </form>
-    
-				</div>
-			</div>
-   		</div>
-   	<div>
-
-
-
-
+ 
 {% endblock contenido %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+</html>

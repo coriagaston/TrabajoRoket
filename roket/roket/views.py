@@ -1,9 +1,8 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
+from .forms import CustomUserCreationForm
+from django.contrib.auth import authenticate, login
 
 
 def Base(request):
@@ -33,12 +32,23 @@ def InicioJuego(request):
 
 
 def RegistroUsuario(request):
+	data = {
+		'form' : CustomUserCreationForm()
+	}
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
-		if forms.is_valid():
-			usuername = form.cleaned_data['username']
-			messages.success(request, f'Usuario {username} creado')
-	else:
-		form = UserCreationForm()
-	context = {'form' : form}
-	return render(request, 'usuarios/registrar.html')
+		formulario = CustomUserCreationForm(data=request.POST)
+		if formulario.is_valid():
+			formulario.save()
+			user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+			login(request, user)
+			messages.success(request, "Te has registrado correctamente")
+			return redirect(to='homeiniciadosesion')
+		data["form"] = formulario
+
+	return render(request, 'usuarios/registrar.html', data)
+
+
+@login_required
+def HomeInicioLogin(request):
+
+	return render(request,'homeiniciadosesion.html')

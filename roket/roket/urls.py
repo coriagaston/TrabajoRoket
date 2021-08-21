@@ -26,7 +26,6 @@ urlpatterns = [
     path('', views.Home, name='home'),
     
     #Inicio del juego
-    
 
     path('iniciojuego/', views.InicioJuego, name='iniciojuego'),
     
@@ -39,6 +38,8 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(),name='logout'),
 
     path('registrar/', views.RegistroUsuario, name='registrar'),
+
+    path('homeiniciadosesion/', views.HomeInicioLogin, name='homeiniciadosesion'),
 
     
     
