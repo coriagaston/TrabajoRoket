@@ -16,7 +16,7 @@ from django.urls import reverse_lazy
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-AUTH_USER_MODEL = 'usuarios.Usuario'
+#AUTH_USER_MODEL = 'usuarios.Usuario' 
 
 LOGIN_REDIRECT_URL = reverse_lazy('homeiniciadosesion')
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
@@ -43,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.usuarios',
+    
     'apps.pregunta',
 ]
-
+#'apps.usuarios',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
