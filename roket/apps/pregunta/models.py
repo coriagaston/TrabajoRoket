@@ -23,12 +23,9 @@ class Respuesta(models.Model):
 	def __str__(self):
 		return self.texto
 
-class Usuarios(models.Model):
-	usuarios = models.OneToOneField(User, on_delete=models.CASCADE)
-	puntaje_total = models.DecimalField(verbose_name='Puntaje Total', default=0, decimal_places=2, max_digits=10)
+
 
 class PreguntasRespondidas(models.Model):
-	Usuarios = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
 	pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
 	respuesta = models.ForeignKey(Respuesta, on_delete=models.CASCADE, related_name='intentos')
 	correcta = models.BooleanField(verbose_name='¿Es tu respuesta correcta?', default=False, null=False)
