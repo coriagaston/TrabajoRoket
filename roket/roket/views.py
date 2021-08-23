@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 
-from apps.pregunta.models import Perfil_Usuario, Pregunta
+from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas
 
 
 def Base(request):
