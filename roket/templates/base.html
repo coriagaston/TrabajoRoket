@@ -23,6 +23,11 @@
     
   </head>
   <body>
+    <header>{% include "nav.html" %}</header>
+
+    {% block content %}
+      {% endblock %}
+
 
     <div class="container">
     <div class="row"></div>
@@ -39,7 +44,7 @@
   {% else %}
   <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'login' %}">Login</a>
   {% endif %}
-  <div style="background-image: url(static/img/fondoChaco.jpg"></div>
+  
   </div>
 
 
