@@ -1,10 +1,50 @@
 <!--barra de navegacion con bootstrap --> 
-<nav class="navbar navbar-light bg-light">
+
+<style type="text/css">
+.borde {
+	border: 1px outset black	
+}
+.padre {
+
+  background-color: 0000ffff; 
+
+
+</style>
+
+
+
+      
+    <div class="" style="background-color:0000ffff;">
+    <div class="row">
+      <div class="col-md-20">
+      	
+        <div class="table-responsive ">
+          <table class="table table-striped"></table>
+
+          <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home' %}">
       <img src="https://i.imgur.com/nrWdwBj.png" width="200" height="100">
 
       PregunChaco
+
+          <nav class="nav nav-pills flex-column flex-sm-row">
+  <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'homeiniciadosesion' %}"><strong>Inicio</strong></a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'ranking' %}"><strong>Ranking</strong></a>
+
+  {% if user.is_authenticated %}
+  <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'logout' %}"><strong>Logout</strong></a>
+  <button type="button" class="btn btn-info"><strong>{{user.username}}</strong></button>
+  {% else %}
+  <a class="flex-sm-fill text-sm-center nav-link" href="{% url 'login' %}"><strong>Login</strong></a>
+  {% endif %}
+
+  </div>
+</div>
+  </div>
+  </div>
+  </div>
+  </div>
     </a>
   </div>
 </nav>
