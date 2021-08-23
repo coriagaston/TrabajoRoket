@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Pregunta, Respuesta, PreguntasRespondidas
+from .models import Pregunta, Respuesta, PreguntasRespondidas, Perfil_Usuario
 from django.conf import settings
 
-
+from .forms import ElegirInlineFormset
 
 # Register your models here.
 
@@ -10,6 +10,7 @@ class ElegirRespuestaInline(admin.TabularInline):
 	model = Respuesta
 	can_delete = False
 	max_num = Respuesta.maximo_respuesta
+	formset = ElegirInlineFormset
 
 
 class PreguntaAdmin(admin.ModelAdmin):
@@ -30,5 +31,6 @@ class PreguntasRespondidasAdmin(admin.ModelAdmin):
 admin.site.register(PreguntasRespondidas)
 admin.site.register(Pregunta, PreguntaAdmin)
 admin.site.register(Respuesta)
+admin.site.register(Perfil_Usuario)
 
 

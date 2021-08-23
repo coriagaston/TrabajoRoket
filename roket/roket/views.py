@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 
+from apps.pregunta.models import Perfil_Usuario, Pregunta
+
 
 def Base(request):
 
@@ -27,8 +29,21 @@ def Ranking(request):
 
 @login_required
 def InicioJuego(request):
+	Perfil_User, created = Perfil_Usuario.objects.get_or_create(perfil_usuario=request.user)
+	if request.method == 'POST':
+		pregunta_pk = request.POST.get('pregunta_pk')
+		pregunta_respondida = Perfil_User.intentos.select_related('pregunta').get(pregunta__pk=pregunta_pk)
+		respuesta_pk = request.POST.get('resputa_pk')
+	else: 
+		respondidas = PreguntasRespondidas.objects.filter(perfil_usuario=Perfil_User).values_list('pregunta__pk',flat=True)
+		pregunta = Pregunta.objects.exclude(pk__in=respondidas)
 
-	return render(request,'iniciojuego.html')
+		context = {
+			'pregunta':pregunta
+		}
+
+
+	return render(request,'iniciojuego.html',context)
 
 
 def RegistroUsuario(request):

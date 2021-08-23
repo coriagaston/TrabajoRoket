@@ -3,8 +3,28 @@
 
 {% block contenido %}
 
+
+{% for pregunta in pregunta %}
+
+	<p>
+		
+		{{pregunta}}
+
+
+	</p>
+
+
+
+	{% for respuestas in pregunta.respuestas.all %}		
+	<p>
+		<strong>{{respuestas}}</strong>
+	</p>
+	{% endfor %}
+
 	
 
+{% endfor %}
+	
 {% endblock contenido %}
 
 <!DOCTYPE html>
