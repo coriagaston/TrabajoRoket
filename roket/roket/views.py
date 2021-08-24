@@ -33,10 +33,23 @@ def InicioJuego(request):
 	if request.method == 'POST':
 		pregunta_pk = request.POST.get('pregunta_pk')
 		pregunta_respondida = Perfil_User.intentos.select_related('pregunta').get(pregunta__pk=pregunta_pk)
-		respuesta_pk = request.POST.get('resputa_pk')
+		respuesta_pk = request.POST.get('respuesta_pk')
+
+		try:
+			opcion_selecionada = pregunta_respondida.pregunta.opciones.get(pk=respuesta_pk)
+		except ObjectDoesNotExist:
+			raise Http404
+
+		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
+
+		return redirect(pregunta_respondida)
+
+
+
 	else: 
-		respondidas = PreguntasRespondidas.objects.filter(perfil_usuario=Perfil_User).values_list('pregunta__pk',flat=True)
-		pregunta = Pregunta.objects.exclude(pk__in=respondidas)
+		pregunta = Perfil_User.obtener_nuevas_preguntas()
+		if pregunta is not None:
+			Perfil_User.crear_intentos(pregunta)
 
 		context = {
 			'pregunta':pregunta
@@ -44,6 +57,8 @@ def InicioJuego(request):
 
 
 	return render(request,'iniciojuego.html',context)
+
+
 
 
 def RegistroUsuario(request):
