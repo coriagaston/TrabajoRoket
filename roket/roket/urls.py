@@ -41,7 +41,7 @@ urlpatterns = [
 
     path('homeiniciadosesion/', views.HomeInicioLogin, name='homeiniciadosesion'),
 
-    
+    path('pregunta/', views.Preguntas, name='preguntas/pregunta.tml'),
     
 
     
