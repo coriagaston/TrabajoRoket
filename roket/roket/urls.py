@@ -27,7 +27,7 @@ urlpatterns = [
     
     #Inicio del juego
 
-    path('iniciojuego/', views.InicioJuego, name='iniciojuego'),
+    path('iniciojuego/<int:categoria>', views.InicioJuego, name='iniciojuego'),
     
     path('ranking/', views.Ranking, name='ranking'),
     
@@ -42,6 +42,8 @@ urlpatterns = [
     path('homeiniciadosesion/', views.HomeInicioLogin, name='homeiniciadosesion'),
 
     path('pregunta/', views.Preguntas, name='preguntas/pregunta.html'),
+
+    path('categoria/', views.CategoriaListView.as_view(), name='categorias'),
     
 
     

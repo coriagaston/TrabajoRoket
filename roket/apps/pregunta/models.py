@@ -54,9 +54,9 @@ class Perfil_Usuario(models.Model):
 		intento = PreguntasRespondidas(pregunta=pregunta,Perfil_User=self)
 		intento.save()
 
-	def obtener_nuevas_preguntas(self):
+	def obtener_nuevas_preguntas(self, categoria):
 		respondidas = PreguntasRespondidas.objects.filter(Perfil_User=self).values_list('pregunta__pk', flat=True)
-		preguntas_restantes = Pregunta.objects.exclude(pk__in=respondidas)
+		preguntas_restantes = Pregunta.objects.exclude(pk__in=respondidas).filter(Categoria.pk==categoria)
 		if not preguntas_restantes.exists():
 			return None
 		return random.choice(preguntas_restantes)

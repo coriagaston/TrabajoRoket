@@ -4,7 +4,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 
-from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas, Respuesta
+from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas, Respuesta, Categoria
+
+from django.views.generic.list import ListView
+
 
 
 def Base(request):
@@ -38,7 +41,7 @@ def Preguntas(request):
 
 
 @login_required
-def InicioJuego(request):
+def InicioJuego(request, categoria):
 	Perfil_User, created = Perfil_Usuario.objects.get_or_create(perfil_usuario=request.user)
 	if request.method == 'POST':
 		pregunta_pk = request.POST.get('pregunta_pk')
@@ -52,7 +55,7 @@ def InicioJuego(request):
 
 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
 
-		pregunta = Perfil_User.obtener_nuevas_preguntas()
+		pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
 
@@ -60,10 +63,10 @@ def InicioJuego(request):
 			'pregunta':pregunta ,
 		}
 
-		
+
 
 	else: 
-		pregunta = Perfil_User.obtener_nuevas_preguntas()
+		pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
 
@@ -75,7 +78,16 @@ def InicioJuego(request):
 	return render(request,'iniciojuego.html',context)
 
 
+class CategoriaListView(ListView):
 
+	model = Categoria
+	template_name='Preguntas/categorias.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(CategoriaListView, self).get_context_data(**kwargs)
+		categoria = Categoria.objects.all()
+		context['categorias'] = categoria
+		return context
 
 
 def RegistroUsuario(request):

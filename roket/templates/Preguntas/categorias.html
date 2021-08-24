@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+	{% for i in categorias %}
+
+	<a href="{% url 'iniciojuego' 2012 %}"></a>
+{# Or with the year in a template context variable: #}
+<ul>
+{% for yearvar in year_list %}
+<li><a href="{% url 'iniciojuego' i.id %}">{{ i.nombre }} Archive</a></li>
+{% endfor %}
+</ul>
+
+
+		<button>{{ i.nombre }}</button>
+	{% endfor %}
+
+
+
+{% endblock content %}
