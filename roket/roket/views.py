@@ -78,10 +78,6 @@ def RegistroUsuario(request):
 	return render(request, 'usuarios/registrar.html', data)
 
 
-def Preguntas(request):
-	return render(request,'preguntas/pregunta.html')
-
-
 @login_required
 def HomeInicioLogin(request):
 

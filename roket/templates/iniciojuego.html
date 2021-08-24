@@ -25,17 +25,18 @@
 			<input type="hidden" name="pregunta_pk" value="{{pregunta.pk}}">
 
 			{% for opciones in pregunta.opciones.all %}
-
+			<br>
+				<br>
 				<input class="form-ckeck-input" type="radio" name="respuesta_pk" value="{{opciones.pk}}" id='choice-{{forloop.counter}}'>
 				<label class="form-ckeck-label" for='choice-{{forloop.counter}}'>
 					{{opciones.texto}}
 				</label>
 
 			{% endfor %}
-
-			<button type="submit" class="btn btn-success">
+			<br><br><br>
+			<div class="class=col-md-10"><button type="submit" class="btn btn-success">
 				Enviar
-			</button>
+			</button></div>
 
 		</form>
 			
