@@ -61,8 +61,8 @@ class Perfil_Usuario(models.Model):
 			return None
 		return random.choice(preguntas_restantes)
 
-	def validar_intento(self,PreguntasRespondidas, respuesta_selecionada):
-		if pregunta_respondida.pregunta_id != respuesta_selecionada.pregunta_id:
+	def validar_intento(self,pregunta_respondida, respuesta_selecionada):
+		if pregunta_respondida.respuesta_id != respuesta_selecionada.respuesta_id:
 			return 
 
 		pregunta_respondida.respuesta_selecionada = respuesta_selecionada

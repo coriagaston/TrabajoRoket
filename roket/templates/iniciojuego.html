@@ -26,7 +26,7 @@
 
 			{% for opciones in pregunta.opciones.all %}
 			<br>
-				<br>
+				<br> {{Categoria.nombre}}
 				<input class="form-ckeck-input" type="radio" name="respuesta_pk" value="{{opciones.pk}}" id='choice-{{forloop.counter}}'>
 				<label class="form-ckeck-label" for='choice-{{forloop.counter}}'>
 					{{opciones.texto}}

@@ -27,19 +27,13 @@ def Ranking(request):
 
 	return render(request,'ranking.html')
 
+def Preguntas(request):
 
-@login_required
-def validar_intento(self,PreguntasRespondidas, respuesta_selecionada):
-		if pregunta_respondida.pregunta_id != respuesta_selecionada.pregunta_id:
-			return 
+	return render(request,'Preguntas/pregunta.html')
 
-		pregunta_respondida.respuesta_selecionada = respuesta_selecionada
-		if respuesta_selecionada.correcta is True:
-			pregunta_respondida.correcta = True
-			pregunta_respondida.puntaje = respuesta_selecionada.pregunta.max_puntaje
-			pregunta_respondida.respuesta = respuesta_selecionada
 
-		pregunta_respondida.save()
+
+
 
 
 
@@ -68,7 +62,7 @@ def InicioJuego(request):
 			Perfil_User.crear_intentos(pregunta)
 
 		context = {
-			'pregunta':pregunta
+			'pregunta':pregunta ,
 		}
 
 
