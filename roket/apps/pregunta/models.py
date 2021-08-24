@@ -10,11 +10,25 @@ from django.contrib.auth.models import User
 import random
 
 
+class Estadisticas(models.Model):
+	pass
+
+
+
+class Categoria(models.Model):
+	nombre = models.CharField(max_length = 30)
+
+	
+	def __str__(self):
+		return self.nombre
+
+
 
 class Pregunta(TimeModel):
 	numero_de_respuesta = 1
 	la_pregunta = models.TextField(verbose_name='Texto de la pregunta' )
 	max_puntaje = models.DecimalField(verbose_name='Maximo Puntaje',default=3,decimal_places=2,max_digits=6)
+	Categoria = models.ForeignKey(Categoria, related_name = 'la_categoria', on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.la_pregunta
@@ -26,6 +40,7 @@ class Respuesta(models.Model):
 	respuesta = models.ForeignKey(Pregunta, related_name='opciones', on_delete=models.CASCADE)
 	correcta = models.BooleanField(verbose_name='¿Esta seguro de esta respueta?',default=False, null=False)
 	texto = models.TextField(verbose_name='Texto de la respuesta')
+	
 
 
 	def __str__(self):

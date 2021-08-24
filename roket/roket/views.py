@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 
-from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas
+from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas, Respuesta
 
 
 def Base(request):
@@ -26,6 +26,22 @@ def Home(request):
 def Ranking(request):
 
 	return render(request,'ranking.html')
+
+
+@login_required
+def validar_intento(self,PreguntasRespondidas, respuesta_selecionada):
+		if pregunta_respondida.pregunta_id != respuesta_selecionada.pregunta_id:
+			return 
+
+		pregunta_respondida.respuesta_selecionada = respuesta_selecionada
+		if respuesta_selecionada.correcta is True:
+			pregunta_respondida.correcta = True
+			pregunta_respondida.puntaje = respuesta_selecionada.pregunta.max_puntaje
+			pregunta_respondida.respuesta = respuesta_selecionada
+
+		pregunta_respondida.save()
+
+
 
 @login_required
 def InicioJuego(request):
@@ -57,6 +73,7 @@ def InicioJuego(request):
 
 
 	return render(request,'iniciojuego.html',context)
+
 
 
 
