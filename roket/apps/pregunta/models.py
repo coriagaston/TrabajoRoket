@@ -62,13 +62,11 @@ class Perfil_Usuario(models.Model):
 		return random.choice(preguntas_restantes)
 
 	def validar_intento(self,pregunta_respondida, respuesta_selecionada):
-		if pregunta_respondida.respuesta_id != respuesta_selecionada.respuesta_id:
-			return 
-
 		pregunta_respondida.respuesta_selecionada = respuesta_selecionada
-		if respuesta_selecionada.correcta is True:
+		if respuesta_selecionada.correcta:
 			pregunta_respondida.correcta = True
-			pregunta_respondida.puntaje = respuesta_selecionada.pregunta.max_puntaje
+			#pregunta_respondida.puntaje = respuesta_selecionada.pregunta.max_puntaje
+			pregunta_respondida.puntaje = 0.1
 			pregunta_respondida.respuesta = respuesta_selecionada
 
 		pregunta_respondida.save()

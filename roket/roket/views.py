@@ -52,9 +52,15 @@ def InicioJuego(request):
 
 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
 
-		return redirect(pregunta_respondida)
+		pregunta = Perfil_User.obtener_nuevas_preguntas()
+		if pregunta is not None:
+			Perfil_User.crear_intentos(pregunta)
 
+		context = {
+			'pregunta':pregunta ,
+		}
 
+		
 
 	else: 
 		pregunta = Perfil_User.obtener_nuevas_preguntas()
