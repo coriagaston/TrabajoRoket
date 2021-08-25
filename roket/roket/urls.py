@@ -43,7 +43,7 @@ urlpatterns = [
 
     path('pregunta/', views.Preguntas, name='preguntas/pregunta.html'),
 
-    path('categoria/', views.CategoriaListView.as_view(), name='categorias'),
+    path('categoria/', views.CategoriaArticleDetailView.as_view(), name='categorias'),
     
 
     

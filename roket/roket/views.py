@@ -8,7 +8,7 @@ from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas,
 
 from django.views.generic.list import ListView
 
-
+from django.views.generic.detail import DetailView
 
 def Base(request):
 
@@ -88,6 +88,21 @@ class CategoriaListView(ListView):
 		categoria = Categoria.objects.all()
 		context['categorias'] = categoria
 		return context
+
+
+class CategoriaArticleDetailView(DetailView):
+
+    model = Categoria
+    template_name='Preguntas/categorias.html'
+
+    def get_context_data(self,*args, **kwargs):
+        context = super(ArticleDetailView).get_context_data(*args,**kwargs)
+        categoria = Categoria.objetcts.all()
+        context['categorias'] = categoria
+        return context
+
+
+
 
 
 def RegistroUsuario(request):
