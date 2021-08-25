@@ -40,7 +40,7 @@ def Preguntas(request):
 
 
 
-@login_required
+
 def InicioJuego(request, categoria):
 	Perfil_User, created = Perfil_Usuario.objects.get_or_create(perfil_usuario=request.user)
 	if request.method == 'POST':
@@ -62,17 +62,14 @@ def InicioJuego(request, categoria):
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
 		context ['pregunta']=pregunta
-
-
-
 	else: 
+		context = {}
 		pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
-
-		context = {
-			'pregunta':pregunta ,
-		}
+		else:
+			context ['mensaje']="No hay mas preguntas en esta categoria" 
+			context ['pregunta']=pregunta
 
 
 	return render(request,'iniciojuego.html',context)

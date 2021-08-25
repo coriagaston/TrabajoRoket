@@ -50,6 +50,9 @@ class Perfil_Usuario(models.Model):
 	perfil_usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 	puntaje_total = models.DecimalField(verbose_name='Puntaje Total',default=0,decimal_places=2, max_digits=10)
 
+	def __str__(self):
+		return self.perfil_usuario
+
 	def crear_intentos(self, pregunta):
 		intento = PreguntasRespondidas(pregunta=pregunta,Perfil_User=self)
 		intento.save()
@@ -69,10 +72,11 @@ class Perfil_Usuario(models.Model):
 			pregunta_respondida.puntaje = 1
 			pregunta_respondida.respuesta = respuesta_selecionada
 			self.puntaje_total += 1
+			self.save()
 		else:
 			pregunta_respondida.correcta = False
 			pregunta_respondida.puntaje = 0
-			
+
 		pregunta_respondida.respuesta = respuesta_selecionada
 		pregunta_respondida.save()
 
@@ -84,5 +88,6 @@ class PreguntasRespondidas(models.Model):
 	correcta = models.BooleanField(verbose_name='¿Es tu respuesta correcta?', default=False, null=False)
 	puntaje = models.DecimalField(verbose_name='Su puntaje',default=0, decimal_places=2, max_digits=6)
 
+	
 
  
