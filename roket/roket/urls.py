@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('iniciojuego/<int:categoria>', views.InicioJuego, name='iniciojuego'),
     
-    path('ranking/', views.Ranking, name='ranking'),
+    path('ranking/', views.RankingListView.as_view(), name='ranking'),
     
     path('juego/', views.Juego, name='juego'),
     #login 
@@ -43,7 +43,7 @@ urlpatterns = [
 
     path('pregunta/', views.Preguntas, name='preguntas/pregunta.html'),
 
-    path('categoria/', views.CategoriaArticleDetailView.as_view(), name='categorias'),
+    path('categoria/', views.CategoriaListView.as_view(), name='categorias'),
     
 
     

@@ -5,5 +5,13 @@
 
 	<h1>BIENVENIDO AL RANKING</h1>
 
+	{% for i in ranking %}
+        <ul>
+        
+            <li>{{i.puntaje_total}}--{{ i.perfil_usuario.username }}</li>
+        
+        </ul>
+    {% endfor %}
+
 
 {% endblock contenido %}

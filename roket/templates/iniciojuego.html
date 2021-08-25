@@ -6,8 +6,8 @@
 {% if pregunta is None %}
 <div class="container">
 	<div class='jumbotron my-4'>
-		<h1>Ya haz respondido a todas las preguntas. Mira el ranking</h1>
-		<a href="{% url 'ranking' %}">Ranking</a>
+		<h1>{{mensaje}}</h1>
+		<a href="{% url 'categorias' %}">Volver atras</a>
 		
 	</div>
 </div>

@@ -26,9 +26,9 @@ def Home(request):
 
 	return render(request,'home.html')
 
-def Ranking(request):
+#def Ranking(request):
 
-	return render(request,'ranking.html')
+	#return render(request,'ranking.html')
 
 def Preguntas(request):
 
@@ -52,16 +52,16 @@ def InicioJuego(request, categoria):
 			opcion_selecionada = pregunta_respondida.pregunta.opciones.get(pk=respuesta_pk)
 		except ObjectDoesNotExist:
 			raise Http404
-
+		context = {}
 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
-
-		pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
+		if pregunta_respondida.correcta == False:
+			pregunta = None
+			context ['mensaje']="Pregunta Incorrecta, sin Preguntas"
+		else:	
+			pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
-
-		context = {
-			'pregunta':pregunta ,
-		}
+		context ['pregunta']=pregunta
 
 
 
@@ -90,18 +90,16 @@ class CategoriaListView(ListView):
 		return context
 
 
-class CategoriaArticleDetailView(DetailView):
+class RankingListView(ListView):
 
-    model = Categoria
-    template_name='Preguntas/categorias.html'
+	model = Perfil_Usuario
+	template_name='ranking.html'
 
-    def get_context_data(self,*args, **kwargs):
-        context = super(ArticleDetailView).get_context_data(*args,**kwargs)
-        categoria = Categoria.objetcts.all()
-        context['categorias'] = categoria
-        return context
-
-
+	def get_context_data(self, **kwargs):
+		context = super(RankingListView, self).get_context_data(**kwargs)
+		ranking = Perfil_Usuario.objects.order_by('puntaje_total')
+		context['ranking'] = ranking
+		return context
 
 
 

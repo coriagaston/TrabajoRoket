@@ -68,9 +68,11 @@ class Perfil_Usuario(models.Model):
 			#pregunta_respondida.puntaje = respuesta_selecionada.pregunta.max_puntaje
 			pregunta_respondida.puntaje = 1
 			pregunta_respondida.respuesta = respuesta_selecionada
+			self.puntaje_total += 1
 		else:
 			pregunta_respondida.correcta = False
 			pregunta_respondida.puntaje = 0
+			
 		pregunta_respondida.respuesta = respuesta_selecionada
 		pregunta_respondida.save()
 
