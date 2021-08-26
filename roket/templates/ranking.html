@@ -3,15 +3,45 @@
 
 {% block contenido %}
 
-	<h1>BIENVENIDO AL RANKING</h1>
+	<h1 class="text-center my-4">BIENVENIDO AL RANKING</h1>
 
-	{% for i in ranking %}
+	<!--{% for i in ranking %}
         <ul>
         
             <li>{{i.puntaje_total}}--{{ i.perfil_usuario.username }}</li>
         
         </ul>
-    {% endfor %}
+    {% endfor %}-->
+
+
+
+<div class="container">
+	
+
+	<table class="table table-striped table-bodered">
+		<thead>
+			<tr>
+				<th>Posicion</th>
+				<th>Usuario</th>
+				<th>Puntaje</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in ranking %}
+				<tr>
+					<th>{{forloop.counter}}</th>
+					<th>{{i.perfil_usuario.username}}</th>
+					<th>{{i.puntaje_total}}</th>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</div>
+
+
+
+
 
 
 {% endblock contenido %}

@@ -131,7 +131,7 @@ class RankingListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(RankingListView, self).get_context_data(**kwargs)
-		ranking = Perfil_Usuario.objects.order_by('puntaje_total')
+		ranking = Perfil_Usuario.objects.order_by('-puntaje_total')[:10]
 		context['ranking'] = ranking
 		return context
 
