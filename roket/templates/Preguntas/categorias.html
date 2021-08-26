@@ -3,18 +3,33 @@
 
 
 {% block content %}
-
-
+<br>
+<div class="d-grid gap-2">
+	<div class="row align-items-center" >
+		<div class="table-responsive ">
+			<div class="col-md-20" >
+	
 
 	{% for i in categorias %}
-        <ul>
         
-            <li><a type="button" href="{% url 'iniciojuego' i.id %}">{{ i.nombre }}</a></li>
+ 		
+		<div class="row align-items-center">
         
-        </ul>
+        	
+            <button type="button" class="btn btn-outline-light" ><li><a type="" href="{% url 'iniciojuego' i.id %}">{{ i.nombre }}</a></li></button>
+        
+        
+        
+    	</div>
+       
+      
     {% endfor %}
-
-    <a href="{% url 'ranking' %}">Mira como quedaste en el ranking</a>
-
+    		</div>
+    	</div>
+    </div>
+</div>
+<div class="text-center my-4">
+    <button type="button" class="btn btn-outline-light"><a href="{% url 'ranking' %}">Mira como quedaste en el ranking</a></button>
+</div>
 
 {% endblock content %}
