@@ -3,4 +3,21 @@ body {
    background-repeat: no no-repeat;
 }
 
+a{
+   background-color: rgba(250, 244, 244, 0.6);
+   
+}
 
+.flex-sm-fill{
+
+   font-family: 'Archivo Narrow', sans-serif;
+   text-shadow: 2px 2px 1px black ;
+   font-size: 200%;
+}
+
+.navbar-brand{
+  font-family: 'Finger Paint', cursive;
+  font-size: 200%;
+
+
+}

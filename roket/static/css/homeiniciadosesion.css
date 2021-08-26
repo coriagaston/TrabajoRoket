@@ -2,3 +2,30 @@ body {
    background-image: url('https://i.imgur.com/Rj5KLok.jpg');
    background-repeat: no no-repeat;
 }
+h1{
+   
+   font-family: 'Rampart One', cursive;
+   font-size: 390% ;
+   
+}
+
+b{
+   font-family: 'Indie Flower', cursive;
+   font-size: 150%;
+   text-align: center;
+   
+}
+
+.flex-sm-fill{
+
+   font-family: 'Archivo Narrow', sans-serif;
+   text-shadow: 2px 2px 1px black ;
+   font-size: 200%;
+}
+
+.navbar-brand{
+  font-family: 'Finger Paint', cursive;
+  font-size: 300%;
+
+
+}
