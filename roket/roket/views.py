@@ -9,6 +9,7 @@ from apps.pregunta.models import Perfil_Usuario, Pregunta, PreguntasRespondidas,
 from django.views.generic.list import ListView
 
 from django.views.generic.detail import DetailView
+from django.contrib import messages
 
 def Base(request):
 
@@ -56,7 +57,7 @@ def InicioJuego(request, categoria):
 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
 		if pregunta_respondida.correcta == False:
 			pregunta = None
-
+			
 		else:	
 			pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
