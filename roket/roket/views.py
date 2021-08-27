@@ -57,7 +57,7 @@ def InicioJuego(request, categoria):
 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
 		if pregunta_respondida.correcta == False:
 			pregunta = None
-			
+			messages.error(request, 'Pregunta Incorrecta.')
 		else:	
 			pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
@@ -70,7 +70,7 @@ def InicioJuego(request, categoria):
 		pregunta = Perfil_User.obtener_nuevas_preguntas(categoria)
 		if pregunta is not None:
 			Perfil_User.crear_intentos(pregunta)
-
+		messages.error(request, 'No hay mas preguntas.')
 		context = {
 			'pregunta':pregunta ,
 		}
