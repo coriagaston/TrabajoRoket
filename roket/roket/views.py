@@ -77,7 +77,7 @@ def InicioJuego(request, categoria):
 
 	return render(request,'iniciojuego.html',context)
 
-	# @login_required
+# @login_required
 # def InicioJuego(request, categoria):
 # 	Perfil_User, created = Perfil_Usuario.objects.get_or_create(perfil_usuario=request.user)
 # 	if request.method == 'POST':
@@ -89,7 +89,7 @@ def InicioJuego(request, categoria):
 # 			opcion_selecionada = pregunta_respondida.pregunta.opciones.get(pk=respuesta_pk)
 # 		except ObjectDoesNotExist:
 # 			raise Http404
-# 		context = {}
+		
 # 		Perfil_User.validar_intento(pregunta_respondida, opcion_selecionada)
 # 		if pregunta_respondida.correcta == False:
 # 			pregunta = None
@@ -109,7 +109,7 @@ def InicioJuego(request, categoria):
 # 			context ['pregunta']=pregunta
 
 
-	# return render(request,'iniciojuego.html',context)
+# 	return render(request,'iniciojuego.html',context)
 
 
 class CategoriaListView(ListView):
