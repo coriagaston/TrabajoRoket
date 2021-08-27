@@ -5,11 +5,9 @@ body {
 }
 
 
-.btn-outline-light{
-   text-decoration: none;
-   font-family: 'Bebas Neue', cursive;
+li: before{
+   background-color: red;
 
-  
 
 
 }
