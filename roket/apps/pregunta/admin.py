@@ -29,6 +29,13 @@ class PreguntasRespondidasAdmin(admin.ModelAdmin):
 	class meta:
 		model = PreguntasRespondidas
 
+class EstadisticasAdmin(admin.ModelAdmin):
+	list_display = ['puntaje_total']
+
+	class meta:
+		model = Perfil_Usuario
+
+
 
 admin.site.register(PreguntasRespondidas)
 admin.site.register(Pregunta, PreguntaAdmin)

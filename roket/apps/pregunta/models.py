@@ -51,6 +51,7 @@ class Perfil_Usuario(models.Model):
 	puntaje_total = models.DecimalField(verbose_name='Puntaje Total',default=0,decimal_places=2, max_digits=10)
 
 	
+	
 
 	def crear_intentos(self, pregunta):
 		intento = PreguntasRespondidas(pregunta=pregunta,Perfil_User=self)
