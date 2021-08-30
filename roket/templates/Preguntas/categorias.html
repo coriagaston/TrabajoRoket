@@ -4,15 +4,12 @@
 
 {% block content %}
 
-<br>
-<div class="d-grid gap-2">
-	<div class="row align-items-center" >
-		<div class="table-responsive ">
-			<div class="col-md-20" >
-	
-
-
-<!-- Bootstrap CSS -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- Letra chacu -->
 
@@ -36,22 +33,45 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 
-	{% for i in categorias %}
+    <br>
+<div class="d-grid gap-2">
+    <div class="row align-items-center" >
+        <div class="table-responsive ">
+            <div class="col-md-20" >
+    
+
+
+
+
+
+    {% for i in categorias %}
         
- 		
-		<div class="row align-items-center">
         
-        	
-            <button type="button" class="btn btn-outline-light" ><li><a type="" href="{% url 'iniciojuego' i.id %}">{{ i.nombre }}</a></li></button>
+       
+        <div class="row align-items-center">
+            <div class="botonCategoria" >
+
+                
+
+                <button type="button" class="btn btn-outline-light" ><a type="" href="{% url 'iniciojuego' i.id %}" style="text-decoration: none;">{{ i.nombre }}</a></button>
+                
+            </div>
+
+            
+            
+        </div>  
+            
+            
+            
         
         
         
-    	</div>
+        
        
       
     {% endfor %}
-    		</div>
-    	</div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="text-center my-4">
@@ -59,3 +79,8 @@
 </div>
 <br><br><br>
 {% endblock content %}
+</head>
+<body>
+
+</body>
+</html>
