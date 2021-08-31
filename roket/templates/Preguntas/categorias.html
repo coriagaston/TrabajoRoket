@@ -6,10 +6,10 @@
 
 <br>
 <div class="d-grid gap-2">
-	<div class="row align-items-center" >
-		<div class="table-responsive ">
-			<div class="col-md-20" >
-	
+    <div class="row align-items-center" >
+        <div class="table-responsive ">
+            <div class="col-md-20" >
+    
 
 
 <!-- Bootstrap CSS -->
@@ -38,23 +38,23 @@
 
 
 
-	{% for i in categorias %}
+    {% for i in categorias %}
         
- 		
-		<div class="row align-items-center">
+        
+        <div class="row align-items-center">
             <div class="text-center my-4">
-        	
+            
 
            <button type="button" class="btn btn-outline-light" style="width: 30%" ><li><a style="text-decoration:none" href="{% url 'iniciojuego' i.id %}"><strong>{{ i.nombre }}</strong></a></li></button>
         
         
             </div>
-    	</div>
+        </div>
        
       
     {% endfor %}
-    		</div>
-    	</div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="text-center my-4">

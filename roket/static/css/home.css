@@ -23,3 +23,23 @@ a{
 
 }
 
+<<<<<<< HEAD
+=======
+.botonCategoria{
+   text-decoration: none;
+   padding: 40px;
+   font-family: arial;
+   padding-left: 10px;
+   padding-right: 10px;
+   font-weight: 800;
+   font-size: 25px;
+   color: black;
+   background-color:white ;
+   
+
+}
+
+.btn-outline-light{
+   background-color: white;
+}
+>>>>>>> b1624f1e9770f8d6286f07152838661f1333a8c3
