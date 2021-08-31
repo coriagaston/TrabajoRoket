@@ -5,5 +5,31 @@ body {
 
 }
 
+a.btn-outline-light{
+pointer-events: none;
+cursor: default;
+text-decoration: none;
 
+}
 
+.btn-outline-light {
+
+text-decoration:none;
+font-weight: 600;
+font-size: 20px;
+color:#000000;
+padding-top:15px;
+padding-bottom:15px;
+padding-left:40px;
+padding-right:40px;
+background-color: transparent;
+border-width: 3px;
+border-style: solid;
+border-color: #000000;
+}
+
+h5{
+	font-size: 1rem;
+	margin-bottom: 0;
+
+}

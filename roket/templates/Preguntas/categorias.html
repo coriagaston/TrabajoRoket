@@ -36,16 +36,19 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 
+
+
 	{% for i in categorias %}
         
  		
 		<div class="row align-items-center">
-        
+            <div class="text-center my-4">
         	
-            <button type="button" class="btn btn-outline-light" ><li><a type="" href="{% url 'iniciojuego' i.id %}">{{ i.nombre }}</a></li></button>
+
+           <button type="button" class="btn btn-outline-light" style="width: 30%" ><li><a style="text-decoration:none" href="{% url 'iniciojuego' i.id %}"><strong>{{ i.nombre }}</strong></a></li></button>
         
         
-        
+            </div>
     	</div>
        
       
@@ -55,7 +58,7 @@
     </div>
 </div>
 <div class="text-center my-4">
-    <button type="button" class="btn btn-outline-light"><a href="{% url 'ranking' %}">Mira como quedaste en el ranking</a></button>
+    <button type="button" class="btn btn-outline-light"><a style="text-decoration:none" href="{% url 'ranking' %}"><strong>Mira como quedaste en el ranking</strong></a></button>
 </div>
 <br><br><br>
 {% endblock content %}
